@@ -9,11 +9,7 @@ interface JwtPayload {
     userId:string
 }
 
-interface Authrequest extends Request {
-    user? :{userId:string}
-}
-
-export const authenticate = (req:Authrequest,res:Response,next:NextFunction) => {
+export const authenticate = (req:Request,res:Response,next:NextFunction) => {
     const authheader= req.headers.authorization
 
     if (!authheader?.startsWith('Bearer')){
